@@ -1,6 +1,7 @@
 <header>
-    <h1>Header</h1>
+    <nav class="nav">
+        <a class="nav-link" href="{{route('home')}}">Home</a>
+        <a class="nav-link" href="{{route('trains')}}">Trains</a>
+      </nav>
 
-    <a href="{{route('home')}}">Home</a>
-    <a href="{{route('nuova-pagina')}}">Nuova Pagina</a>
 </header>
