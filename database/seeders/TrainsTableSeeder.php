@@ -18,17 +18,17 @@ class TrainsTableSeeder extends Seeder
     {
         for($i = 0; $i < 100; $i++){
             $new_trains = new Train();
-            $new_trains->slug = $this->generateSlug($new_trains ->company);
             $new_trains->company = $faker->company();
             $new_trains->departure_station = $faker->city();
             $new_trains->arrival_station = $faker->city();
-            $new_trains->departure_time = $faker->time();
-            $new_trains->arrival_time = $faker->time();
+            $new_trains->slug = $this->generateSlug($new_trains ->departure_station . '-' . $new_trains->arrival_station);
+            $new_trains->departure_time = $faker->time('H:i');
+            $new_trains->arrival_time = $faker->time('H:i');
             $new_trains->train_code = $faker->randomNumber(5, true);
             $new_trains->number_carriage = $faker->numberBetween(1, 30);
             $new_trains->in_time = $faker->boolean();
             $new_trains->is_deleted = $faker->boolean();
-            dump($new_trains);
+            $new_trains->save();
         }
     }
 
